@@ -8,22 +8,28 @@ import { Subject } from "rxjs";
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      "Testipe",
-      "Easy and delish!",
-      "https://storage.needpix.com/rsynced_images/potato-soup-2152265_1280.jpg",
-      [new Ingredient("Mangos", 2), new Ingredient("Milk", 1)]
-    ),
-    new Recipe(
-      "Groupar",
-      "Served with energy and dust.",
-      "https://storage.needpix.com/rsynced_images/potato-soup-2152265_1280.jpg",
-      [new Ingredient("Fish sticks", 1), new Ingredient("Noodles", 4)]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     "Testipe",
+  //     "Easy and delish!",
+  //     "https://storage.needpix.com/rsynced_images/potato-soup-2152265_1280.jpg",
+  //     [new Ingredient("Mangos", 2), new Ingredient("Milk", 1)]
+  //   ),
+  //   new Recipe(
+  //     "Groupar",
+  //     "Served with energy and dust.",
+  //     "https://storage.needpix.com/rsynced_images/potato-soup-2152265_1280.jpg",
+  //     [new Ingredient("Fish sticks", 1), new Ingredient("Noodles", 4)]
+  //   ),
+  // ];
+  private recipes: Recipe[] = [];
 
   constructor(private shoppingListService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
