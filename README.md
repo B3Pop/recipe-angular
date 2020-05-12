@@ -1,8 +1,23 @@
-# Recipe
+# Recipe and shopping list app (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+This project was built using Angular 9 as part of the [Angular - The Complete Guide (2020 Edition)](https://www.udemy.com/course/the-complete-guide-to-angular-2/) course by Maximilian Schwarzmüller.
 
-## Development server
+## Getting started
+
+### Clone the repo
+
+```shell
+git clone https://github.com/B3Pop/recipe-angular.git
+cd recipe-angular
+```
+
+### Install dependencies
+
+```shell
+npm install
+```
+
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
