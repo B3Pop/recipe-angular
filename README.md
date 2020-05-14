@@ -2,6 +2,8 @@
 
 This project was built using Angular 9 as part of the [Angular - The Complete Guide (2020 Edition)](https://www.udemy.com/course/the-complete-guide-to-angular-2/) course by Maximilian Schwarzmüller.
 
+Authentication and data storage utilizes [Firebase](https://firebase.google.com/).
+
 ## Getting started
 
 ### Clone the repo
