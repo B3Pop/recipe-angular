@@ -19,6 +19,26 @@ cd recipe-angular
 npm install
 ```
 
+### Set up backend
+
+1. Create a new project in Firebase.
+2. Create a Realime Database named **recipes**.
+3. Enable Email/Password authentication.
+4. Set read/write rules for the database. Ex:
+
+```shell
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+```
+
+### Configuration
+
+Set your Firebase URL and API key values in the environments files (environment.ts and environment.prod.ts).
+
 ### Run development server
 
 ```shell
@@ -29,12 +49,38 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build --prod` to create a production build of the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Deploy
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Deploy build artifacts to a static host.
 
-## Running end-to-end tests
+### For Firebase hosting
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```shell
+sudo npm install -g firebase-tools
+```
+
+```shell
+sudo firebase login
+```
+
+From the root of the project folder:
+
+```shell
+sudo firebase init
+```
+
+Select option for Hosting: Configure and deploy Firebase Hosting sites
+
+Select option for Use and existing project and then select your recipe project
+
+Public directory: `dist/recipe`
+
+Configure as single page app? `y`
+
+Overwrite index.html? `N`
+
+```shell
+sudo firebase deploy
+```
