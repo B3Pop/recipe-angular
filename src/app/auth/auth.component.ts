@@ -71,7 +71,7 @@ export class AuthComponent implements OnInit {
   }
 
   onHandleError() {
-    this.error = null;
+    this.store.dispatch(new AuthActions.ClearError());
   }
 
   ngOnDestroy() {
@@ -84,7 +84,6 @@ export class AuthComponent implements OnInit {
   }
 
   private showErrorAlert(message: string) {
-    // const alertCmp = new AlertComponent();
     const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
       AlertComponent
     );
