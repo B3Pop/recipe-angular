@@ -5,10 +5,8 @@ import {
   ViewChild,
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { Observable, Subscription } from "rxjs";
-import { AuthService, AuthResponseData } from "./auth.service";
+import { Subscription } from "rxjs";
 import { PlaceholderDirective } from "../shared/placeholder/placeholder.directive";
 import * as fromApp from "../store/app.reducer";
 import * as AuthActions from "./store/auth.actions";
@@ -29,8 +27,6 @@ export class AuthComponent implements OnInit {
   private storeSub: Subscription;
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
     private componentFactoryResolver: ComponentFactoryResolver,
     private store: Store<fromApp.AppState>
   ) {}
